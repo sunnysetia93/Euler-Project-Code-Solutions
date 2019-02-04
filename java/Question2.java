@@ -3,25 +3,20 @@ public class Question2 {
 	public static final int PAR_VALUE = 4000000;
 	
 	public static void main(String[] args) {
-		System.out.println(getEvenFibonacciSum(1,2,2));
+		System.out.println(getEvenFibonacciSum(1,1,0));
 	}
 
-	private static int getEvenFibonacciSum(int firstFibonacciTerm, int secondFibonacciTerm,int sumOfTerms) {
+	private static int getEvenFibonacciSum(int firstFibonacciTerm, int secondFibonacciTerm,  int sumOfEvenFibonacci) {
 		
 		int newFibonacciTerm = firstFibonacciTerm + secondFibonacciTerm;
 		
 		if( newFibonacciTerm > PAR_VALUE) {
-			return sumOfTerms;
+			return sumOfEvenFibonacci;
 		}
 		else {
-		
-			if (newFibonacciTerm % 2 == 0) {
-				int temp = sumOfTerms + newFibonacciTerm;
-				return getEvenFibonacciSum(secondFibonacciTerm, newFibonacciTerm, temp);
-			}
-			else {
-				return getEvenFibonacciSum(secondFibonacciTerm, newFibonacciTerm, sumOfTerms);
-			}
+			return getEvenFibonacciSum(secondFibonacciTerm + newFibonacciTerm,
+				2 * newFibonacciTerm + secondFibonacciTerm,
+				sumOfEvenFibonacci + newFibonacciTerm);
 		}
 	}
 
