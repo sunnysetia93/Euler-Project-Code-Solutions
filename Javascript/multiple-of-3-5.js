@@ -1,16 +1,12 @@
 var number=1000;
 var sum=0;
 
-for(let i=1;i<number;i++){
-    sum+=multiples(i,3);
-    sum+=multiples(i,5);
-    sum-=multiples(i,3*5);
-}
+sum+=sumOfMultiples(3);
+sum+=sumOfMultiples(5);
+sum-=sumOfMultiples(15);
 console.log(sum);
 
-function multiples(i,num){
-    if(i%num==0){
-        return i;
-    }
-    return 0;
+function sumOfMultiples(factor){
+    var noOfMultiples = parseInt((number-1)/factor);
+    return (factor*parseInt(noOfMultiples*(noOfMultiples+1))/2); // eg: factor*(n*(n+1)/2) 
 }
